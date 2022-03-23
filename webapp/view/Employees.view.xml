@@ -1,0 +1,73 @@
+<mvc:View
+   controllerName="com.esfsrap.empskifsrap.controller.Employees"
+   xmlns="sap.m"
+   xmlns:f="sap.f"
+   xmlns:mvc="sap.ui.core.mvc">
+
+    <Table 
+        id="idEmployeeTable"
+        autoPopinMode="true"
+        contextualWidth="Auto"
+        growing="true"
+        items="{/Employees}">			
+                
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>employeeListTitle}"/>
+                <ToolbarSpacer/>      
+                <Button 
+                    width="150px" 
+                    icon="sap-icon://add" 
+                    press=".onAddEmployee" 
+                    text="Add Employee"/> 
+                <Button
+                    id="saveButton"
+                    type="Emphasized"
+                    text="{i18n>saveButtonText}"
+                    press=".onSave"/>
+                <Button
+                    id="doneButton"
+                    text="{i18n>cancelButtonText}"
+                    press=".onResetChanges"/>   
+                    <!-- <SearchField
+                            id="searchField"
+                            tooltip="{i18n>worklistSearchTooltip}"
+                            search=".onSearch">
+                            <layoutData>
+                                <OverflowToolbarLayoutData
+                                    maxWidth="200px"
+                                    priority="NeverOverflow"/>
+                            </layoutData>
+                        </SearchField>         -->
+            </Toolbar>
+        </headerToolbar>
+
+        <columns>
+            <Column width="12rem">
+                <Text text="Name"/>
+            </Column>
+            <Column width="12rem">
+                <Text text="Department"/>
+            </Column>
+            <Column width="12rem">
+                <Text text="Industry"/>
+            </Column>
+            <Column width="12rem">
+                <Text text="Start Date"/>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem 
+                vAlign="Middle"
+                press=".onPress"
+                type="Navigation"> 
+                <cells>
+                    <ObjectIdentifier title="{Fullname}" text="{Role}"/>
+                        <Text text="{Department}"/>
+                        <Text text="{Industry}"/>
+                        <Text text="{StartDate}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</mvc:View>
