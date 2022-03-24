@@ -94,11 +94,9 @@
           ]
         },
         {
-          "pattern": "Employees/{objectId}",
-          "name": "object",
-          "target": [
-            "object"
-          ]
+          "name":"detail",
+          "pattern":"detail/{employeePath}",
+          "target":"detail"
         }
       ],
       "targets": {
@@ -109,11 +107,9 @@
           "viewId": "Employees",
           "viewName": "Employees"
         },
-        "object": {
-          "viewName": "Object",
-          "viewId": "object",
-          "viewLevel": 2,
-          "title": "{i18n>objectViewTitle}"
+        "detail":{
+          "viewId": "Details",
+          "viewName":"Details"
         }
       }
     },
