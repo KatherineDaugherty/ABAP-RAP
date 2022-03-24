@@ -1,0 +1,135 @@
+<mvc:View 
+    controllerName="com.esfsrap.empskifsrap.controller.Detail" 
+        xmlns="sap.m" 
+        xmlns:f="sap.f" 
+        xmlns:card="sap.f.cards" 
+        xmlns:layout="sap.ui.layout" 
+        xmlns:w="sap.ui.integration.widgets" 
+        displayBlock="true" 
+        height="100%" 
+        xmlns:mvc="sap.ui.core.mvc">
+
+
+	<Page 
+        id="idPage" 
+        title=" Details Page" 
+        floatingFooter="true" 
+        showNavButton="true" 
+        navButtonPress=".onNavBack" 
+        icon="sap-icon://add-favorite">
+		<headerContent>
+			<Button 
+                id="editEmployeeButton" 
+                icon="sap-icon://edit" 
+                text="Edit Employee" 
+                press=".onEditEmployee" />
+			<Button 
+                id="saveButton" 
+                visible="false" 
+                type="Emphasized" 
+                text="{i18n>saveButtonText}" 
+                press=".onSaveEmployee" />
+			<Button 
+                id="resetButton" 
+                visible="false" 
+                text="{i18n>cancelButtonText}" 
+                press=".onResetChanges" />
+		</headerContent>
+		<content>
+			<HeaderContainer backgroundDesign="Solid">
+				<layout:HorizontalLayout id="information" visible="true">
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Name" design="Bold" />
+						<Title text="{name}" />
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Title" design="Bold" />
+						<Text text="{title}" />
+						<Label text="Role" design="Bold" />
+						<Text text="{role}" />
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Start Date" design="Bold" />
+						<Text text="{startDate}" />
+						<Label text="Email" design="Bold" />
+						<Text text="{email}" />
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Direct Report" design="Bold" />
+						<Text text="{directReport}" />
+						<Label text="Department" design="Bold" />
+						<Text text="{department}" />
+					</layout:VerticalLayout>
+				</layout:HorizontalLayout>
+
+
+				<layout:HorizontalLayout id="inputs" visible="false">
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Name" design="Bold" />
+						<Input value="{name}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Department" design="Bold" />
+						<Input value="{department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Title" design="Bold" />
+						<Input value="{title}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Role" design="Bold" />
+						<Input value="{role}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Industry" design="Bold" />
+						<Input value="{industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Direct Report" design="Bold" />
+						<Input value="{directReport}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Start Date" design="Bold" />
+						<Input value="{startDate}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Email" design="Bold" />
+						<Input value="{email}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+					</layout:VerticalLayout>
+				</layout:HorizontalLayout>
+			</HeaderContainer>
+
+			<ScrollContainer height="100%" width="100%" vertical="true">
+
+
+				<Panel headerText= "Add New Skills" expandable="true" expanded="false">
+					<content>
+					<Button id="skillButton" icon="sap-icon://add-favorite" tooltip="Add Skill" text="Add Employee Skill" press="onOpenSkillDialog" />
+					<Button icon="sap-icon://delete" tooltip="Delete Skill" text="Delete Employee Skill" type="Transparent" press="onDeleteSkill" />
+				</content>
+				</Panel>
+
+				<f:GridContainer id="grid1" class="sapUiSmallMargin" snapToRow="true" items="{
+                    path: 'skills',
+					parameters : {
+							expand : 'skills'
+						}
+                }">
+					<f:layout>
+						<f:GridContainerSettings rowSize="80px" columnSize="80px" gap="18px" />
+					</f:layout>
+					<f:layoutXS>
+						<f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
+					</f:layoutXS>
+
+					<f:items>
+						<GenericTile header="{skill/skill}" subheader="{skill/type}" >
+							<layoutData>
+								<f:GridContainerItemLayoutData minRows="2" columns="2" />
+							</layoutData>
+							<TileContent>
+								<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+									<VBox>
+										<Label text="Date Acquired" design="Bold" />
+										<Label text="{dateAcquired}" />
+										<Label text="Comfort Level" design="Bold" />
+										<ProgressIndicator percentValue="{comfortLevel}" state="Success" displayValue="{comfortLevel}" />
+									</VBox>
+								</layout:VerticalLayout>
+							</TileContent>
+						</GenericTile>
+					</f:items>
+				</f:GridContainer>
+			</ScrollContainer>
+		</content>
+	</Page>
+
+</mvc:View>

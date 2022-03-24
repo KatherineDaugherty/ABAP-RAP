@@ -29,9 +29,9 @@
                     tooltip="{i18n>deleteButtonText}" 
                     press=".onDelete" 
                     text="Delete Employee">
-                    <!-- <layoutData>
+                    <layoutData>
                         <OverflowToolbarLayoutData priority="NeverOverflow" />
-                    </layoutData> -->
+                    </layoutData>
                 </Button>
                 <!-- <Button
                     id="saveButton"
