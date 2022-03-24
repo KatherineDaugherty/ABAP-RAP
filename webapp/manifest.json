@@ -92,6 +92,13 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "pattern": "Employees/{objectId}",
+          "name": "object",
+          "target": [
+            "object"
+          ]
         }
       ],
       "targets": {
@@ -101,6 +108,12 @@
           "clearControlAggregation": false,
           "viewId": "Employees",
           "viewName": "Employees"
+        },
+        "object": {
+          "viewName": "Object",
+          "viewId": "object",
+          "viewLevel": 2,
+          "title": "{i18n>objectViewTitle}"
         }
       }
     },
