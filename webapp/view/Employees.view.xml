@@ -1,15 +1,17 @@
 <mvc:View
    controllerName="com.esfsrap.empskifsrap.controller.Employees"
-   xmlns="sap.m"
-   xmlns:f="sap.f"
-   xmlns:mvc="sap.ui.core.mvc">
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc">
 
     <Table 
         id="idEmployeeTable"
         autoPopinMode="true"
         contextualWidth="Auto"
         growing="true"
-        items="{/Employees}">			
+        items="{/Employees}"
+        mode="SingleSelectLeft">			
                 
         <headerToolbar>
             <Toolbar>
@@ -17,10 +19,21 @@
                 <ToolbarSpacer/>      
                 <Button 
                     width="150px" 
-                    icon="sap-icon://add" 
+                    icon="sap-icon://add"
+                    tooltip="{i18n>addButtonText}"  
                     press=".onAddEmployee" 
                     text="Add Employee"/> 
-                <Button
+                    <Button 
+                    id="deleteUserButton" 
+                    icon="sap-icon://delete" 
+                    tooltip="{i18n>deleteButtonText}" 
+                    press=".onDelete" 
+                    text="Delete Employee">
+                    <!-- <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData> -->
+                </Button>
+                <!-- <Button
                     id="saveButton"
                     type="Emphasized"
                     text="{i18n>saveButtonText}"
@@ -28,7 +41,7 @@
                 <Button
                     id="doneButton"
                     text="{i18n>cancelButtonText}"
-                    press=".onResetChanges"/>   
+                    press=".onResetChanges"/>    -->
                     <!-- <SearchField
                             id="searchField"
                             tooltip="{i18n>worklistSearchTooltip}"
