@@ -40,11 +40,11 @@
 				<layout:HorizontalLayout id="information" visible="true">
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
 						<Label text="Name" design="Bold" />
-						<Title text="{name}" />
+						<Title text="{Fullname}" />
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
 						<Label text="Title" design="Bold" />
-						<Text text="{title}" />
+						<Text text="{Title}" />
 						<Label text="Role" design="Bold" />
 						<Text text="{role}" />
 					</layout:VerticalLayout>

@@ -5,7 +5,6 @@ sap.ui.define([
 	"sap/ui/core/Fragment",
 	"sap/ui/core/Core"
 
-
 ], function (Controller, JSONModel, History, Fragment, Core) {
 	"use strict";
 	return Controller.extend("com.esfsrap.empskifsrap.controller.Detail", {
@@ -35,7 +34,7 @@ sap.ui.define([
 				window.history.go(-1);
 			} else {
 				var oRouter = this.getOwnerComponent().getRouter();
-				oRouter.navTo("overview", {}, true);
+				oRouter.navTo("RouteMain", {}, true);
 			}
 		},
 		onEditEmployee: function (oEvent) {
