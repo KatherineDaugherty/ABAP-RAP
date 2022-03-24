@@ -10,7 +10,8 @@
   ],
   "main": "webapp/index.html",
   "dependencies": {
-    "ui5-middleware-proxy": "^0.0.20"
+    "ui5-middleware-proxy": "^0.0.20",
+    "ui5-middleware-simpleproxy": "^0.8.0"
   },
   "devDependencies": {
     "@sap/ux-ui5-fe-mockserver-middleware": "1",
