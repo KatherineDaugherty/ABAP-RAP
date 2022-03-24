@@ -17,14 +17,14 @@ sap.ui.define([
                 employeeBinding = employeeList.getBinding("items"),
                 oContext = employeeBinding.create({
                     // "ID": "",
-                    "name": "",
-                    "department": "",
-                    "title": "",
-                    "role": "",
-                    "industry": "",
-                    "directReport": "",
-                    "startDate": "1997-12-12",
-                    "email": ""
+                    "Fullname": "",
+                    "Department": "",
+                    "Title": "",
+                    "Role": "",
+                    "Industry": "",
+                    "DirectReport": "",
+                    "StartDate": "1997-12-12",
+                    "Email": ""
                 });
             console.log('employeeBinding', employeeBinding);
             console.log('oContext', oContext);
@@ -50,7 +50,7 @@ sap.ui.define([
             var oRouter = this.getOwnerComponent().getRouter();
             console.log('Click');
             oRouter.navTo("detail", {
-                employeePath: window.encodeURIComponent((oItem.getBindingContext().getProperty("ID")))
+                employeePath: window.encodeURIComponent((oItem.getBindingContext().getProperty("Id")))
             });
         }
     });

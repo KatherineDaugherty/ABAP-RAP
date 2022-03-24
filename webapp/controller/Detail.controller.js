@@ -19,7 +19,7 @@ sap.ui.define([
 		},
 		_onObjectMatched: function (oEvent) {
 			this.getView().bindElement({
-				path : "/Employees(ID=" + window.decodeURIComponent(oEvent.getParameter("arguments").employeePath)+ ")",
+				path : "/Employees(Id=" + window.decodeURIComponent(oEvent.getParameter("arguments").employeePath)+ ")",
 				parameters : {
 					"$$updateGroupId" : 'employeeGroup'
 				}	
@@ -48,6 +48,7 @@ sap.ui.define([
 		},
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
+			console.log('pressed cancel');
 			oViewModel.setProperty("/editMode", false),
 			this.getView().getModel().resetChanges('employeeGroup');
 			this.byId("information").setProperty("visible", true);
@@ -75,9 +76,6 @@ sap.ui.define([
 		onDeleteSkill: function () {
 			console.log('delete clicked');
 		},
-		// onTilePress: function(){
-		// 	console.log('tile pressed');
-		// }
 
 		onOpenSkillDialog : function () {
 			if (!this.addSkillDialog) {

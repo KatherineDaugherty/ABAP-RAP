@@ -46,19 +46,19 @@
 						<Label text="Title" design="Bold" />
 						<Text text="{Title}" />
 						<Label text="Role" design="Bold" />
-						<Text text="{role}" />
+						<Text text="{Role}" />
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
 						<Label text="Start Date" design="Bold" />
-						<Text text="{startDate}" />
+						<Text text="{StartDate}" />
 						<Label text="Email" design="Bold" />
-						<Text text="{email}" />
+						<Text text="{Email}" />
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
 						<Label text="Direct Report" design="Bold" />
-						<Text text="{directReport}" />
+						<Text text="{DirectReport}" />
 						<Label text="Department" design="Bold" />
-						<Text text="{department}" />
+						<Text text="{Department}" />
 					</layout:VerticalLayout>
 				</layout:HorizontalLayout>
 
@@ -66,23 +66,23 @@
 				<layout:HorizontalLayout id="inputs" visible="false">
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
 						<Label text="Name" design="Bold" />
-						<Input value="{name}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Input value="{Fullname}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Department" design="Bold" />
-						<Input value="{department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Input value="{Department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Title" design="Bold" />
-						<Input value="{title}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Input value="{Title}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Role" design="Bold" />
-						<Input value="{role}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Input value="{Role}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
 						<Label text="Industry" design="Bold" />
-						<Input value="{industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Input value="{Industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Direct Report" design="Bold" />
-						<Input value="{directReport}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Input value="{DirectReport}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Start Date" design="Bold" />
-						<Input value="{startDate}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Input value="{StartDate}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Email" design="Bold" />
-						<Input value="{email}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Input value="{Email}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 					</layout:VerticalLayout>
 				</layout:HorizontalLayout>
 			</HeaderContainer>
@@ -119,9 +119,9 @@
 								<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
 									<VBox>
 										<Label text="Date Acquired" design="Bold" />
-										<Label text="{dateAcquired}" />
+										<Label text="{DateAcquired}" />
 										<Label text="Comfort Level" design="Bold" />
-										<ProgressIndicator percentValue="{comfortLevel}" state="Success" displayValue="{comfortLevel}" />
+										<ProgressIndicator percentValue="{ComfortLevel}" state="Success" displayValue="{comfortLevel}" />
 									</VBox>
 								</layout:VerticalLayout>
 							</TileContent>

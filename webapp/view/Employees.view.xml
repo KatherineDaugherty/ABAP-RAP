@@ -33,25 +33,6 @@
                         <OverflowToolbarLayoutData priority="NeverOverflow" />
                     </layoutData>
                 </Button>
-                <!-- <Button
-                    id="saveButton"
-                    type="Emphasized"
-                    text="{i18n>saveButtonText}"
-                    press=".onSave"/>
-                <Button
-                    id="doneButton"
-                    text="{i18n>cancelButtonText}"
-                    press=".onResetChanges"/>    -->
-                    <!-- <SearchField
-                            id="searchField"
-                            tooltip="{i18n>worklistSearchTooltip}"
-                            search=".onSearch">
-                            <layoutData>
-                                <OverflowToolbarLayoutData
-                                    maxWidth="200px"
-                                    priority="NeverOverflow"/>
-                            </layoutData>
-                        </SearchField>         -->
             </Toolbar>
         </headerToolbar>
 
