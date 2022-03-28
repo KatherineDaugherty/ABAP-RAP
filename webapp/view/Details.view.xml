@@ -1,83 +1,123 @@
-<mvc:View controllerName="com.esfsrap.empskifsrap.controller.Detail" xmlns="sap.m" xmlns:f="sap.f" xmlns:card="sap.f.cards" xmlns:layout="sap.ui.layout" xmlns:w="sap.ui.integration.widgets" displayBlock="true" height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic">
+<mvc:View 
+    controllerName="com.esfsrap.empskifsrap.controller.Detail" 
+        xmlns="sap.m" 
+        xmlns:f="sap.f" 
+        xmlns:card="sap.f.cards" 
+        xmlns:layout="sap.ui.layout" 
+        xmlns:w="sap.ui.integration.widgets" 
+        displayBlock="true" 
+        height="100%" 
+		xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc"
+        >
 
-    <semantic:SemanticPage id="idPage" title=" Details Page" floatingFooter="true" showNavButton="true" navButtonPress=".onNavBack" icon="sap-icon://add-favorite">
+	<Page 
+        id="idPage" 
+        title=" Details Page" 
+        floatingFooter="true" 
+        showNavButton="true" 
+        navButtonPress=".onNavBack" 
+        icon="sap-icon://add-favorite">
 
-        <semantic:content>
-            <Button id="editEmployeeButton" icon="sap-icon://edit" text="Edit Employee" visible="{= ${detailView>/editMode} ? false : true }" press=".onEditEmployee" />
-            <Button id="saveButton" visible="{detailView>/editMode}" type="Emphasized" text="{i18n>saveButtonText}" press=".onSaveEmployee" />
-            <Button id="resetButton" visible="{detailView>/editMode}" text="{i18n>cancelButtonText}" press=".onResetChanges" />
-        </semantic:content>
-        <semantic:content>
-            <HeaderContainer backgroundDesign="Solid">
-                <layout:HorizontalLayout id="information" visible="{= ${detailView>/editMode} ? false : true }">
-                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
-                        <Label text="Name" design="Bold" />
-                        <Title text="{Fullname}" />
-                    </layout:VerticalLayout>
-                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
-                        <Label text="Title" design="Bold" />
-                        <Text text="{Title}" />
-                        <Label text="Role" design="Bold" />
-                        <Text text="{Role}" />
-                    </layout:VerticalLayout>
-                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
-                        <Label text="Start Date" design="Bold" />
-                        <Text text="{StartDate}" />
-                        <Label text="Email" design="Bold" />
-                        <Text text="{Email}" />
-                    </layout:VerticalLayout>
-                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
-                        <Label text="Direct Report" design="Bold" />
-                        <Text text="{DirectReport}" />
-                        <Label text="Department" design="Bold" />
-                        <Text text="{Department}" />
-                    </layout:VerticalLayout>
-                </layout:HorizontalLayout>
-
-
-                <layout:HorizontalLayout id="inputs" visible="{detailView>/editMode}">
-                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
-                        <Label text="Name" design="Bold" />
-                        <Input value="{Fullname}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-                        <Label text="Department" design="Bold" />
-                        <Input value="{Department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-                        <Label text="Title" design="Bold" />
-                        <Input value="{Title}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-                        <Label text="Role" design="Bold" />
-                        <Input value="{Role}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-                    </layout:VerticalLayout>
-                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
-                        <Label text="Industry" design="Bold" />
-                        <Input value="{Industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-                        <Label text="Direct Report" design="Bold" />
-                        <Input value="{DirectReport}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-                        <Label text="Start Date" design="Bold" />
-                        <Input value="{StartDate}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-                        <Label text="Email" design="Bold" />
-                        <Input value="{Email}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-                    </layout:VerticalLayout>
-                </layout:HorizontalLayout>
-            </HeaderContainer>
-            <ScrollContainer height="100%" width="100%" vertical="true">
+		<headerContent>
+			<Button 
+                id="editEmployeeButton" 
+                icon="sap-icon://edit" 
+                text="Edit Employee" 
+				visible ="{= ${detailView>/editMode} ? false : true }"
+                press=".onEditEmployee" />
+			<Button 
+                id="saveButton" 
+                visible="{detailView>/editMode}" 
+                type="Emphasized" 
+                text="{i18n>saveButtonText}" 
+                press=".onSaveEmployee" />
+			<Button 
+                id="resetButton" 
+                visible="{detailView>/editMode}" 
+                text="{i18n>cancelButtonText}" 
+                press=".onResetChanges" />
+		</headerContent>
+		<content>
+			<HeaderContainer backgroundDesign="Solid">
+				<layout:HorizontalLayout id="information" visible="{= ${detailView>/editMode} ? false : true }" >
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Name" design="Bold" />
+						<Title text="{Fullname}" />
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Title" design="Bold" />
+						<Text text="{Title}" />
+						<Label text="Role" design="Bold" />
+						<Text text="{Role}" />
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Start Date" design="Bold" />
+						<Text text="{StartDate}" />
+						<Label text="Email" design="Bold" />
+						<Text text="{Email}" />
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Direct Report" design="Bold" />
+						<Text text="{DirectReport}" />
+						<Label text="Department" design="Bold" />
+						<Text text="{Department}" />
+					</layout:VerticalLayout>
+				</layout:HorizontalLayout>
 
 
-                <Panel headerText="Add New Skills" expandable="true" expanded="false">
-                    <content>
-                        <Button id="skillButton" icon="sap-icon://add-favorite" tooltip="Add Skill" text="Add Employee Skill" press="onOpenSkillDialog" />
-                        <Button icon="sap-icon://delete" tooltip="Delete Skill" text="Delete Employee Skill" type="Transparent" press="onDeleteSkill" />
-                    </content>
-                </Panel>
+				<layout:HorizontalLayout id="inputs" visible="{detailView>/editMode}">
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Name" design="Bold" />
+						<Input value="{Fullname}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Department" design="Bold" />
+						<Input value="{Department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Title" design="Bold" />
+						<Input value="{Title}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Role" design="Bold" />
+						<Input value="{Role}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Industry" design="Bold" />
+						<Input value="{Industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Direct Report" design="Bold" />
+						<Input value="{DirectReport}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Start Date" design="Bold" />
+						<Input value="{StartDate}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Email" design="Bold" />
+						<Input value="{Email}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+					</layout:VerticalLayout>
+				</layout:HorizontalLayout>
+			</HeaderContainer>
+			<ScrollContainer height="100%" width="100%" vertical="true">
 
-                <Table id="skillTable" width="auto" items="{
+
+				<Panel headerText= "Add New Skills" expandable="true" expanded="false">
+					<content>
+					<Button id="skillButton" icon="sap-icon://add-favorite" tooltip="Add Skill" text="Add Employee Skill" press="onOpenSkillDialog" />
+					<Button icon="sap-icon://delete" tooltip="Delete Skill" text="Delete Employee Skill" type="Transparent" press="onDeleteSkill" />
+				</content>
+				</Panel>
+
+				<Table
+                id="skillTable"
+                width="auto"
+                items="{
                     path: 'Employees2Skills',
 					expand: '_Skills'
-				}" mode="MultiSelect" growing="true" growingScrollToLoad="true">
+				}"
+                mode="MultiSelect"
+                growing="true"
+                growingScrollToLoad="true">
 
-                    <headerToolbar>
-                        <OverflowToolbar>
-                            <Title id="tableHeader" text="Title" level="H3" />
-                            <ToolbarSpacer />
-                            <!-- <Button
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            id="tableHeader"
+                            text="Title"
+                            level="H3"/>
+                        <ToolbarSpacer />
+                        <!-- <Button
                             icon="sap-icon://add"
                             type="Transparent"
                             press="onCreateSkill"/>
@@ -85,39 +125,44 @@
                             icon="sap-icon://delete"
                             type="Transparent"
                             press="onDeleteSkill"/>
-                         -->
+                        <SearchField
+                            id="searchField"
+                            tooltip="{i18n>worklistSearchTooltip}"
+                            search=".onSearch"> -->
                             <layoutData>
-                                <OverflowToolbarLayoutData maxWidth="200px" priority="NeverOverflow" />
+                                <OverflowToolbarLayoutData
+                                    maxWidth="200px"
+                                    priority="NeverOverflow"/>
                             </layoutData>
-                        </OverflowToolbar>
-                    </headerToolbar>
+                        <!-- </SearchField> -->
+                    </OverflowToolbar>
+                </headerToolbar>
 
-                    <!-- Skill Table -->
-                    <columns>
-                        <Column id="skillColumn">
-                            <Text text="Title" id="skillColumnTitle" />
-                        </Column>
-                        <Column id="institutionColumn">
-                            <Text text="Institution" id="skillInstitutionTitle" />
-                        </Column>
-                        <Column id="skillTypeColumn">
-                            <Text text="Type" id="skillTypeTitle" />
-                        </Column>
-                        <Column id="skillDateColumn">
-                            <Text text="Skill Date" id="skillDateTitle" />
-                        </Column>
-                        <Column id="skillRenewalColumn">
-                            <Text text="Renewal" id="skillRenewalTitle" />
-                        </Column>
-                        <Column id="skillComfortColumn">
-                            <Text text="Comfort Level" id="skillComfortTitle" />
-                        </Column>
-                    </columns>
+                <columns>
+                    <Column id="skillColumn">
+                        <Text text="Title" id="skillColumnTitle"/>
+                    </Column>
+                    <Column id="institutionColumn">
+                        <Text text="Institution" id="skillInstitutionTitle"/>
+                    </Column>
+                    <Column id="skillTypeColumn">
+                        <Text text="Type" id="skillTypeTitle"/>
+                    </Column>
+                    <Column id="skillDateColumn">
+                        <Text text="Skill Date" id="skillDateTitle"/>
+                    </Column>
+                    <Column id="skillRenewalColumn">
+                        <Text text="Renewal" id="skillRenewalTitle"/>
+                    </Column>
+                    <Column id="skillComfortColumn">
+                        <Text text="Comfort Level" id="skillComfortTitle"/>
+                    </Column>
+                </columns>
 
-                    <items>
-                        <ColumnListItem>
-                            <cells>
-                                <!-- <Select
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <!-- <Select
                                 selectedKey="{
                                     path: 'skill/ID',
                                     mode: 'sap.ui.model.BindingMode.OneWay'
@@ -130,17 +175,34 @@
                                 change="onSelectChange"> -->
                                 <!-- <core:Item key="{ID}" text="{skillTitle}" />
                             </Select> -->
-                                <Text text="{_Skills/Skill}" />
-                                <Text text="{_Skills/Institution}" />
-                                <Text text="{_Skills/Type}" />
-                                <DatePicker editable="{objectView>/editMode}" value="{Dateacquired}" valueLiveUpdate="true" liveChange="onInputChange" />
-                                <Input editable="{objectView>/editMode}" value="{Renewal}" valueLiveUpdate="true" liveChange="onInputChange" />
-                                <Input editable="{objectView>/editMode}" value="{Comfortlevel}" valueLiveUpdate="true" liveChange="onInputChange" />
-                            </cells>
-                        </ColumnListItem>
-                    </items>
-                </Table>
-                <!-- <f:GridContainer id="grid1" class="sapUiSmallMargin" snapToRow="true" items="{
+							<Text
+                                text="{_Skills/Skill}"/>
+                            <Text
+                                text="{_Skills/Institution}"/>
+                            <Text
+                                text="{_Skills/Type}"/>
+                            <DatePicker
+                                editable="{objectView>/editMode}"
+                                value="{Dateacquired}"
+                                valueLiveUpdate="true"
+                                liveChange="onInputChange"/>
+                            <Input
+                                editable="{objectView>/editMode}"
+                                value="{Renewal}"
+                                valueLiveUpdate="true"
+                                liveChange="onInputChange"/>
+                            <Input
+                                editable="{objectView>/editMode}"
+                                value="{Comfortlevel}"
+                                valueLiveUpdate="true"
+                                liveChange="onInputChange"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+
+				<!-- <f:GridContainer id="grid1" class="sapUiSmallMargin" snapToRow="true" items="{
 
                     path: 'Employees2Skills',
 					parameters : {
@@ -172,8 +234,8 @@
 						</GenericTile>
 					</f:items>
 				</f:GridContainer> -->
-            </ScrollContainer>
-        </semantic:content>
-    </semantic:SemanticPage>
+			</ScrollContainer>
+		</content>
+	</Page>
 
 </mvc:View>
