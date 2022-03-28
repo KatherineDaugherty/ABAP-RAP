@@ -17,13 +17,13 @@ sap.ui.define([
                 employeeBinding = employeeList.getBinding("items"),
                 oContext = employeeBinding.create({
                     // "ID": "",
-                    "Fullname": "",
+                    "Fullname": " ",
                     "Department": "",
                     "Title": "",
                     "Role": "",
                     "Industry": "",
                     "DirectReport": "",
-                    "StartDate": "1997-12-12",
+                    "StartDate": "2020-03-25",
                     "Email": ""
                 });
             console.log('employeeBinding', employeeBinding);
