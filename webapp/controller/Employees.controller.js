@@ -48,8 +48,9 @@ sap.ui.define([
 			this.getView().getModel().submitBatch();
 		},
         onDelete : function () {
-            console.log('delete employee');
+            console.log ('clicked Delete');
         },
+
         //NAVIGATION 
         onPress: function (oEvent) {
             var oItem = oEvent.getSource();

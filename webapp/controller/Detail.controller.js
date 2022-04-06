@@ -41,11 +41,6 @@ sap.ui.define([
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", true);
 			
-			// this.byId("information").setProperty("visible", false);
-            // this.byId("inputs").setProperty("visible", true);
-			// this.byId("saveButton").setProperty("visible", true);
-			// this.byId("resetButton").setProperty("visible", true);
-			// this.byId("editEmployeeButton").setProperty("visible", false);
 		},
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
@@ -63,8 +58,7 @@ sap.ui.define([
 			console.log('pressed Save');
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", false)
-
-		},
+		}, 
 		onAddSkill: function () {
 			console.log('clicked add Skill');
 			onOpenSkillDialog();
