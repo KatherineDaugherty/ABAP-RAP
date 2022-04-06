@@ -143,8 +143,11 @@
                 <items>
                     <ColumnListItem >
                         <cells>
-							<Text
-                                text="{_Skills/Skill}"/>
+							<Input
+                                editable="{= ${detailView>/editMode} ? true : false }"
+                                value="{_Skills/Skill}"
+                                valueLiveUpdate="true"
+                                liveChange="onInputChange"/>
                             <Text
                                 text="{_Skills/Institution}"/>
                             <Text
@@ -174,10 +177,6 @@
          <semantic:titleMainAction>
 			<semantic:TitleMainAction id="editEmployeeButton" text="Edit" press=".onEditEmployee" visible ="{= ${detailView>/editMode} ? false : true }"/>
 		</semantic:titleMainAction>
-
-        <semantic:deleteAction>
-			<semantic:DeleteAction press="onDelete"/>
-		</semantic:deleteAction>
 
         <semantic:footerMainAction>
 			<semantic:FooterMainAction id="saveButton" text="Save" press=".onSaveEmployee" />

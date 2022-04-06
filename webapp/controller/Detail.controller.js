@@ -57,6 +57,27 @@ sap.ui.define([
 //Skills Controls 
 		onAddSkill: function () {
 			console.log('clicked add Skill');
+			var oList = this.byId("skillTable"),
+				oBinding = oList.getBinding("items"),
+				oContext = oBinding.create({
+                    "Skill": {
+                        "ID": "3b6fbba2-d36d-4e7d-9a8e-425c4b0636d6"
+                    },
+					"DateAcquired" : "",
+                    "Renewal" : "",
+                    "ComfortLevel" : ""
+				});
+
+			this._setUIChanges();
+			this.getView().getModel("appView").setProperty("/usernameEmpty", true);
+
+			oList.getItems().some(function (oItem) {
+				if (oItem.getBindingContext() === oContext) {
+					oItem.focus();
+					oItem.setSelected(true);
+					return true;
+				}
+			});
 			
 		},
 		onDeleteSkill: function () {
