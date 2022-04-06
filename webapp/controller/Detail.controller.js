@@ -51,15 +51,17 @@ sap.ui.define([
 		onSaveEmployee: function () {
 			this.getView().getModel().submitBatch("employeeGroup");
 			var oViewModel = this.getView().getModel("detailView");
+
+			this.getView().getModel().submitBatch("skillGroup");
 			oViewModel.setProperty("/editMode", false)
 		},
 		
 //Skills Controls 
 		onAddSkill: function () {
-			console.log('clicked add Skill');
-			var oList = this.byId("skillTable"),
-				oBinding = oList.getBinding("items"),
-				oContext = oBinding.create({
+			console.log('clicked add Skill --- in progress');
+			var List = this.byId("skillTable"),
+				Binding = List.getBinding("items"),
+				Context = Binding.create({
                     "Skill": {
                         "ID": "3b6fbba2-d36d-4e7d-9a8e-425c4b0636d6"
                     },
@@ -68,13 +70,12 @@ sap.ui.define([
                     "ComfortLevel" : ""
 				});
 
-			this._setUIChanges();
 			this.getView().getModel("appView").setProperty("/usernameEmpty", true);
 
-			oList.getItems().some(function (oItem) {
-				if (oItem.getBindingContext() === oContext) {
-					oItem.focus();
-					oItem.setSelected(true);
+			List.getItems().some(function (Item) {
+				if (Item.getBindingContext() === Context) {
+					Item.focus();
+					Item.setSelected(true);
 					return true;
 				}
 			});

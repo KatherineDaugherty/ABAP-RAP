@@ -87,7 +87,11 @@
             width="auto"
             items="{
                 path: 'Employees2Skills',
-                expand: '_Skills'
+                expand: '_Skills',
+                parameters: {
+                    $count: true,
+                    $$updateGroupId : 'skillGroup'
+                }
             }"
             mode="MultiSelect"
             growing="true"
