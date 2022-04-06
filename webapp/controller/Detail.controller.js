@@ -39,13 +39,13 @@ sap.ui.define([
 		},
 		onEditEmployee: function (oEvent) {
 			var oViewModel = this.getView().getModel("detailView");
-			oViewModel.setProperty("/editMode", true);
-			
+			oViewModel.setProperty("/editMode", true);	
 		},
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
 			console.log('pressed cancel');
 			oViewModel.setProperty("/editMode", false),
+
 			this.getView().getModel().resetChanges('employeeGroup');
 			this.byId("information").setProperty("visible", true);
             this.byId("inputs").setProperty("visible", false);
@@ -61,17 +61,10 @@ sap.ui.define([
 		}, 
 		onAddSkill: function () {
 			console.log('clicked add Skill');
-			onOpenSkillDialog();
+			
 		},
 		onDeleteSkill: function () {
 			console.log('delete clicked');
-		},
-
-		onOpenSkillDialog : function () {
-			if (!this.addSkillDialog) {
-				this.addSkillDialog = this.getView().byId("addSkillDialog")
-			}
-			this.addSkillDialog.open();
 		}
 	});
 });
