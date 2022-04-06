@@ -47,6 +47,18 @@ sap.ui.define([
             console.log('save clicked', this.getView().getModel());
 			this.getView().getModel().submitBatch();
 		},
+        onDelete : function () {
+            console.log ('clicked Delete');
+			var oSelected = this.byId("idEmployeeTable").getSelectedItem();
+
+			if (oSelected) {
+				oSelected.getBindingContext().delete("$auto").then(function () {
+					MessageToast.show(this._getText("deletionSuccessMessage"));
+				}.bind(this), function (oError) {
+					MessageBox.error(oError.message);
+				});
+			}
+        },
         //NAVIGATION 
         onPress: function (oEvent) {
             var oItem = oEvent.getSource();
