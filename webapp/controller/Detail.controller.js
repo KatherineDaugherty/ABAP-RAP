@@ -41,6 +41,9 @@ sap.ui.define([
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", true);	
 		},
+		onDelete : function () {
+            console.log ('clicked Delete');
+        },
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
 			console.log('pressed cancel');

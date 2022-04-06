@@ -23,16 +23,15 @@
                     tooltip="{i18n>addButtonText}"  
                     press=".onAddEmployee" 
                     text="Add Employee"/> 
-                    <Button 
+                    <!-- <Button 
                     id="deleteUserButton" 
                     icon="sap-icon://delete" 
                     tooltip="{i18n>deleteButtonText}" 
                     press=".onDelete" 
-                    text="Delete Employee">
+                    text="Delete Employee"> -->
                     <layoutData>
                         <OverflowToolbarLayoutData priority="NeverOverflow" />
                     </layoutData>
-                </Button>
             </Toolbar>
         </headerToolbar>
 

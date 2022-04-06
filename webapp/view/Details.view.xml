@@ -29,8 +29,8 @@
                     text="{Fullname}"/>
                 <Input
                     id="bigNameEdit"
-                    visible="false"
-                    editable="{detailView>/editMode}"
+                    visible="{detailView>/editMode}"
+                    editable="true"
                     value="{Fullname}"
                     valueLiveUpdate="true"
                     liveChange="onInputChange"/>
@@ -222,6 +222,10 @@
          <semantic:titleMainAction>
 			<semantic:TitleMainAction id="editEmployeeButton" text="Edit" press=".onEditEmployee" visible ="{= ${detailView>/editMode} ? false : true }"/>
 		</semantic:titleMainAction>
+
+        <semantic:deleteAction>
+			<semantic:DeleteAction press="onDelete"/>
+		</semantic:deleteAction>
 
         <semantic:footerMainAction>
 			<semantic:FooterMainAction id="saveButton" text="Save" press=".onSaveEmployee" />

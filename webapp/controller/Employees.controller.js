@@ -47,10 +47,6 @@ sap.ui.define([
             console.log('save clicked', this.getView().getModel());
 			this.getView().getModel().submitBatch();
 		},
-        onDelete : function () {
-            console.log ('clicked Delete');
-        },
-
         //NAVIGATION 
         onPress: function (oEvent) {
             var oItem = oEvent.getSource();
