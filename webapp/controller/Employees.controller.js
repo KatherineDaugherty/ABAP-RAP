@@ -15,6 +15,7 @@ sap.ui.define([
             //   console.log('clicked Add Employee')
             var employeeList = this.byId("idEmployeeTable"),
                 employeeBinding = employeeList.getBinding("items"),
+                oRouter = this.getOwnerComponent().getRouter(),
                 oContext = employeeBinding.create({
                     // "ID": "",
                     "Fullname": " ",
@@ -26,6 +27,11 @@ sap.ui.define([
                     "StartDate": "2020-03-25",
                     "Email": ""
                 });
+                oContext.created().then(function (oEvent) {
+                    oRouter.navTo("detail", {
+                        employeePath: oContext.getPath().substring("/Employees(".length, oContext.getPath().length-1)
+                    })
+                })
             console.log('employeeBinding', employeeBinding);
             console.log('oContext', oContext);
 
@@ -38,11 +44,11 @@ sap.ui.define([
             });
         },  
         onSave : function () {
-            console.log('save clicked...but is it doing anything?', this.getView().getModel());
+            console.log('save clicked', this.getView().getModel());
 			this.getView().getModel().submitBatch();
 		},
-        onResetChanges : function () {
-            console.log('reset Changes To be created still');
+        onDelete : function () {
+            console.log('delete employee');
         },
         //NAVIGATION 
         onPress: function (oEvent) {

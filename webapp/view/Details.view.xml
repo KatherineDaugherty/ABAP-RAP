@@ -9,42 +9,36 @@
         height="100%" 
 		xmlns:core="sap.ui.core"
         xmlns:mvc="sap.ui.core.mvc"
+        xmlns:semantic="sap.f.semantic"
         >
 
-	<Page 
+	<semantic:SemanticPage 
         id="idPage" 
         title=" Details Page" 
         floatingFooter="true" 
         showNavButton="true" 
+        showFooter = "{detailView>/editMode}"
         navButtonPress=".onNavBack" 
         icon="sap-icon://add-favorite">
 
-		<headerContent>
-			<Button 
-                id="editEmployeeButton" 
-                icon="sap-icon://edit" 
-                text="Edit Employee" 
-				visible ="{= ${detailView>/editMode} ? false : true }"
-                press=".onEditEmployee" />
-			<Button 
-                id="saveButton" 
-                visible="{detailView>/editMode}" 
-                type="Emphasized" 
-                text="{i18n>saveButtonText}" 
-                press=".onSaveEmployee" />
-			<Button 
-                id="resetButton" 
-                visible="{detailView>/editMode}" 
-                text="{i18n>cancelButtonText}" 
-                press=".onResetChanges" />
-		</headerContent>
-		<content>
-			<HeaderContainer backgroundDesign="Solid">
+        <semantic:titleHeading>
+            <layout:VerticalLayout>
+                <Title 
+                    id="bigName"
+                    visible="{= ${detailView>/editMode} ? false : true }"
+                    text="{Fullname}"/>
+                <Input
+                    id="bigNameEdit"
+                    visible="false"
+                    editable="{detailView>/editMode}"
+                    value="{Fullname}"
+                    valueLiveUpdate="true"
+                    liveChange="onInputChange"/>
+            </layout:VerticalLayout>
+        </semantic:titleHeading>
+        
+        <semantic:headerContent>
 				<layout:HorizontalLayout id="information" visible="{= ${detailView>/editMode} ? false : true }" >
-					<layout:VerticalLayout class="sapUiMediumMarginEnd">
-						<Label text="Name" design="Bold" />
-						<Title text="{Fullname}" />
-					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
 						<Label text="Title" design="Bold" />
 						<Text text="{Title}" />
@@ -65,11 +59,8 @@
 					</layout:VerticalLayout>
 				</layout:HorizontalLayout>
 
-
 				<layout:HorizontalLayout id="inputs" visible="{detailView>/editMode}">
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
-						<Label text="Name" design="Bold" />
-						<Input value="{Fullname}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Department" design="Bold" />
 						<Input value="{Department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Title" design="Bold" />
@@ -88,16 +79,9 @@
 						<Input value="{Email}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 					</layout:VerticalLayout>
 				</layout:HorizontalLayout>
-			</HeaderContainer>
-			<ScrollContainer height="100%" width="100%" vertical="true">
+        </semantic:headerContent>
 
-
-				<Panel headerText= "Add New Skills" expandable="true" expanded="false">
-					<content>
-					<Button id="skillButton" icon="sap-icon://add-favorite" tooltip="Add Skill" text="Add Employee Skill" press="onOpenSkillDialog" />
-					<Button icon="sap-icon://delete" tooltip="Delete Skill" text="Delete Employee Skill" type="Transparent" press="onDeleteSkill" />
-				</content>
-				</Panel>
+        <semantic:content>
 
 				<Table
                 id="skillTable"
@@ -114,29 +98,28 @@
                     <OverflowToolbar>
                         <Title
                             id="tableHeader"
-                            text="Title"
+                            text="Employee Skills"
                             level="H3"/>
                         <ToolbarSpacer />
-                        <!-- <Button
+                        <Button
                             icon="sap-icon://add"
+                            text="Add Skill"
                             type="Transparent"
-                            press="onCreateSkill"/>
+                            press="onAddSkill"/>
                         <Button
                             icon="sap-icon://delete"
+                            text="Delete Skill"
                             type="Transparent"
                             press="onDeleteSkill"/>
-                        <SearchField
-                            id="searchField"
-                            tooltip="{i18n>worklistSearchTooltip}"
-                            search=".onSearch"> -->
+                    
                             <layoutData>
                                 <OverflowToolbarLayoutData
                                     maxWidth="200px"
                                     priority="NeverOverflow"/>
                             </layoutData>
-                        <!-- </SearchField> -->
                     </OverflowToolbar>
-                </headerToolbar>
+                </headerToolbar> 
+
 
                 <columns>
                     <Column id="skillColumn">
@@ -182,25 +165,25 @@
                             <Text
                                 text="{_Skills/Type}"/>
                             <DatePicker
-                                editable="{objectView>/editMode}"
+                                editable="detailView>/editMode}"
                                 value="{Dateacquired}"
                                 valueLiveUpdate="true"
                                 liveChange="onInputChange"/>
                             <Input
-                                editable="{objectView>/editMode}"
+                                editable="{detailView>/editMode}"
                                 value="{Renewal}"
                                 valueLiveUpdate="true"
                                 liveChange="onInputChange"/>
                             <Input
-                                editable="{objectView>/editMode}"
+                                editable="{detailView>/editMode}"
                                 value="{Comfortlevel}"
                                 valueLiveUpdate="true"
                                 liveChange="onInputChange"/>
+                                
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
-
 
 				<!-- <f:GridContainer id="grid1" class="sapUiSmallMargin" snapToRow="true" items="{
 
@@ -234,8 +217,20 @@
 						</GenericTile>
 					</f:items>
 				</f:GridContainer> -->
-			</ScrollContainer>
-		</content>
-	</Page>
+        </semantic:content>
 
+         <semantic:titleMainAction>
+			<semantic:TitleMainAction id="editEmployeeButton" text="Edit" press=".onEditEmployee" visible ="{= ${detailView>/editMode} ? false : true }"/>
+		</semantic:titleMainAction>
+
+        <semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveButton" text="Save" press=".onSaveEmployee" />
+		</semantic:footerMainAction>
+
+		<semantic:footerCustomActions>
+			<Button id="resetButton" text="Cancel"  press=".onResetChanges" />
+		</semantic:footerCustomActions>
+
+
+	</semantic:SemanticPage>
 </mvc:View>

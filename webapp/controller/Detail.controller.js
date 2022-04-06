@@ -64,12 +64,6 @@ sap.ui.define([
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", false)
 
-			// this.byId("information").setProperty("visible", true);
-			// console.log(this.byId("information"));
-            // this.byId("inputs").setProperty("visible", false);
-			// this.byId("saveButton").setProperty("visible", false);
-			// this.byId("resetButton").setProperty("visible", false);
-			// this.byId("editEmployeeButton").setProperty("visible", true);
 		},
 		onAddSkill: function () {
 			console.log('clicked add Skill');
