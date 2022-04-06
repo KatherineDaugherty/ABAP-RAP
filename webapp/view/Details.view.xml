@@ -82,17 +82,16 @@
         </semantic:headerContent>
 
         <semantic:content>
-
-				<Table
-                id="skillTable"
-                width="auto"
-                items="{
-                    path: 'Employees2Skills',
-					expand: '_Skills'
-				}"
-                mode="MultiSelect"
-                growing="true"
-                growingScrollToLoad="true">
+            <Table
+            id="skillTable"
+            width="auto"
+            items="{
+                path: 'Employees2Skills',
+                expand: '_Skills'
+            }"
+            mode="MultiSelect"
+            growing="true"
+            growingScrollToLoad="true">
 
                 <headerToolbar>
                     <OverflowToolbar>
@@ -120,7 +119,6 @@
                     </OverflowToolbar>
                 </headerToolbar> 
 
-
                 <columns>
                     <Column id="skillColumn">
                         <Text text="Title" id="skillColumnTitle"/>
@@ -145,19 +143,6 @@
                 <items>
                     <ColumnListItem>
                         <cells>
-                            <!-- <Select
-                                selectedKey="{
-                                    path: 'skill/ID',
-                                    mode: 'sap.ui.model.BindingMode.OneWay'
-                                    }"
-                                items="{
-                                    path: '/Skills',
-                                    sorter: { path: 'skillTitle' }
-                                }"
-                                editable="{objectView>/editMode}"
-                                change="onSelectChange"> -->
-                                <!-- <core:Item key="{ID}" text="{skillTitle}" />
-                            </Select> -->
 							<Text
                                 text="{_Skills/Skill}"/>
                             <Text
@@ -178,45 +163,12 @@
                                 editable="{detailView>/editMode}"
                                 value="{Comfortlevel}"
                                 valueLiveUpdate="true"
-                                liveChange="onInputChange"/>
-                                
+                                liveChange="onInputChange"/>    
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
 
-				<!-- <f:GridContainer id="grid1" class="sapUiSmallMargin" snapToRow="true" items="{
-
-                    path: 'Employees2Skills',
-					parameters : {
-							expand : '_Skills'
-						}
-                }">
-					<f:layout>
-						<f:GridContainerSettings rowSize="80px" columnSize="80px" gap="18px" />
-					</f:layout>
-					<f:layoutXS>
-						<f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
-					</f:layoutXS>
-
-					<f:items>
-						<GenericTile header="{_Skills/Skill}" subheader="{_Skills/Type}" >
-							<layoutData>
-								<f:GridContainerItemLayoutData minRows="2" columns="2" />
-							</layoutData>
-							<TileContent>
-								<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-									<VBox>
-										<Label text="Date Acquired" design="Bold" />
-										<Label text="{DateAcquired}" />
-										<Label text="Comfort Level" design="Bold" />
-										<ProgressIndicator percentValue="{ComfortLevel}" state="Success" displayValue="{ComfortLevel}" />
-									</VBox>
-								</layout:VerticalLayout>
-							</TileContent>
-						</GenericTile>
-					</f:items>
-				</f:GridContainer> -->
         </semantic:content>
 
          <semantic:titleMainAction>
@@ -234,7 +186,6 @@
 		<semantic:footerCustomActions>
 			<Button id="resetButton" text="Cancel"  press=".onResetChanges" />
 		</semantic:footerCustomActions>
-
 
 	</semantic:SemanticPage>
 </mvc:View>
