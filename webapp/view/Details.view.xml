@@ -141,7 +141,7 @@
                 </columns>
 
                 <items>
-                    <ColumnListItem>
+                    <ColumnListItem >
                         <cells>
 							<Text
                                 text="{_Skills/Skill}"/>

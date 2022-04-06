@@ -43,6 +43,15 @@ sap.ui.define([
 		},
 		onDelete : function () {
             console.log ('clicked Delete');
+			var oSelected = this.byId("idEmployeeTable").getSelectedItem();
+
+			if (oSelected) {
+				oSelected.getBindingContext().delete("$auto").then(function () {
+					MessageToast.show(this._getText("deletionSuccessMessage"));
+				}.bind(this), function (oError) {
+					MessageBox.error(oError.message);
+				});
+			}
         },
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
