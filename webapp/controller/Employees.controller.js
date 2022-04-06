@@ -12,12 +12,10 @@ sap.ui.define([
         onInit: function () {
         },
         onAddEmployee: function () {
-            //   console.log('clicked Add Employee')
             var employeeList = this.byId("idEmployeeTable"),
                 employeeBinding = employeeList.getBinding("items"),
                 oRouter = this.getOwnerComponent().getRouter(),
                 oContext = employeeBinding.create({
-                    // "ID": "",
                     "Fullname": " ",
                     "Department": "",
                     "Title": "",
@@ -59,7 +57,6 @@ sap.ui.define([
 				});
 			}
         },
-        //NAVIGATION 
         onPress: function (oEvent) {
             var oItem = oEvent.getSource();
             var oRouter = this.getOwnerComponent().getRouter();

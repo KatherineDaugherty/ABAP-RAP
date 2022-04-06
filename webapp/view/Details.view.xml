@@ -150,7 +150,7 @@
                             <Text
                                 text="{_Skills/Type}"/>
                             <DatePicker
-                                editable="detailView>/editMode}"
+                                editable="{= ${detailView>/editMode} ? true : false }"
                                 value="{Dateacquired}"
                                 valueLiveUpdate="true"
                                 liveChange="onInputChange"/>

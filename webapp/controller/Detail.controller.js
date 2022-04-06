@@ -41,25 +41,20 @@ sap.ui.define([
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", true);	
 		},
-	
+
+//Floating Footer Controls 
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
-			console.log('pressed cancel');
 			oViewModel.setProperty("/editMode", false),
-
 			this.getView().getModel().resetChanges('employeeGroup');
-			this.byId("information").setProperty("visible", true);
-            this.byId("inputs").setProperty("visible", false);
-			this.byId("saveButton").setProperty("visible", false);
-			this.byId("resetButton").setProperty("visible", false);
-			this.byId("editEmployeeButton").setProperty("visible", true);
 		},
 		onSaveEmployee: function () {
 			this.getView().getModel().submitBatch("employeeGroup");
-			console.log('pressed Save');
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", false)
-		}, 
+		},
+		
+//Skills Controls 
 		onAddSkill: function () {
 			console.log('clicked add Skill');
 			
