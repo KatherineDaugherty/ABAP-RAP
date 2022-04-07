@@ -65,30 +65,9 @@ sap.ui.define([
 		this.addSkillDialog.open();
 		},
 
-		// onAddSkill: function (oEvent) {
-		// 	console.log('clicked add Skill --- in progress');
-		// 	// var List = this.byId("skillTable"),
-		// 	// 	Binding = List.getBinding("items"),
-		// 	// 	Context = Binding.create({
-        //     //         "Skill": {
-        //     //             "ID": selectedSkillData.getProperty("ID")
-        //     //         },
-		// 	// 	});
+		onAddSkill: function (oEvent) {
+			var selectedSkill = oEvent.getSource().getParent().getContent()[0].getContent()[0].getContent()[1].getSelectedItem().getKey();
 
-		// 	this.getView().getModel("appView").setProperty("/usernameEmpty", true);
-
-		// 	List.getItems().some(function (Item) {
-		// 		if (Item.getBindingContext() === Context) {
-		// 			Item.focus();
-		// 			Item.setSelected(true);
-		// 			return true;
-		// 		}
-		// 	});			
-		// },
-		onSelectChange : function (oEvent) {
-            var selectedSkill = oEvent.getParameter("selectedItem").getKey();
-            var selectedSkillData = oEvent.getParameter("selectedItem").getCustomData();
-            console.log(selectedSkill, selectedSkillData);
 			var List = this.byId("skillTable"),
 				Binding = List.getBinding("items"),
 				Context = Binding.create({
@@ -103,10 +82,29 @@ sap.ui.define([
 					return true;
 				}
 			});	
-				this.getView().getModel().submitBatch("skillGroup");
+			this.getView().getModel().submitBatch("skillGroup");
 
 				this.addSkillDialog.close();
+				
+		},
+		onSelectChange : function (oEvent) {
+            var selectedSkill = oEvent.getParameter("selectedItem").getKey();
+            var selectedSkillData = oEvent.getParameter("selectedItem").getCustomData();
+            console.log(selectedSkill, selectedSkillData);
+			// var List = this.byId("skillTable"),
+			// 	Binding = List.getBinding("items"),
+			// 	Context = Binding.create({
 
+            //             "SkillId": selectedSkill
+			// 	});
+
+			// 		List.getItems().some(function (Item) {
+			// 	if (Item.getBindingContext() === Context) {
+			// 		Item.focus();
+			// 		Item.setSelected(true);
+			// 		return true;
+			// 	}
+			// });	
         },
 
 		onCancel: function () {

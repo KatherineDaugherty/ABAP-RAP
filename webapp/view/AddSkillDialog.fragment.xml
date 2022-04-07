@@ -37,10 +37,10 @@
         </layout:VerticalLayout>
       </layout:HorizontalLayout>
       <beginButton>
-        <!-- <Button
+        <Button
             text="Add Skill"
             type="Emphasized"
-            press="onAddSkill"/> -->
+            press="onAddSkill"/>
       </beginButton>
       <endButton>
         <Button 
