@@ -91,6 +91,15 @@ sap.ui.define([
 		},
 		onDeleteSkill: function (oEvent) {
 			console.log('delete skill');
+			var selected = this.byId("skillTable").getSelectedItem();
+
+			if (selected) {
+				selected.getBindingContext().delete("$auto").then(function () {
+					MessageToast.show(this._getText("deletionSuccessMessage"));
+				}.bind(this), function (oError) {
+					MessageBox.error(oError.message);
+				});
+			}
 		},
 		onCancel: function () {
 			console.log('cancel clicked');
