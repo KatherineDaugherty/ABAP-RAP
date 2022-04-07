@@ -57,37 +57,62 @@ sap.ui.define([
 		},
 		
 //Skills Controls 
+		onOpenSkillDialog : function () {
+			console.log('dialog clicked');
+			if (!this.addSkillDialog) {
+				this.addSkillDialog = this.getView().byId("addSkillDialog")
+		}
+		this.addSkillDialog.open();
+		},
 
-onOpenSkillDialog : function () {
-	console.log('dialog clicked');
-	if (!this.addSkillDialog) {
-		this.addSkillDialog = this.getView().byId("addSkillDialog")
-	}
-	this.addSkillDialog.open();
-},
-		onAddSkill: function () {
-			console.log('clicked add Skill --- in progress');
+		// onAddSkill: function (oEvent) {
+		// 	console.log('clicked add Skill --- in progress');
+		// 	// var List = this.byId("skillTable"),
+		// 	// 	Binding = List.getBinding("items"),
+		// 	// 	Context = Binding.create({
+        //     //         "Skill": {
+        //     //             "ID": selectedSkillData.getProperty("ID")
+        //     //         },
+		// 	// 	});
+
+		// 	this.getView().getModel("appView").setProperty("/usernameEmpty", true);
+
+		// 	List.getItems().some(function (Item) {
+		// 		if (Item.getBindingContext() === Context) {
+		// 			Item.focus();
+		// 			Item.setSelected(true);
+		// 			return true;
+		// 		}
+		// 	});			
+		// },
+		onSelectChange : function (oEvent) {
+            var selectedSkill = oEvent.getParameter("selectedItem").getKey();
+            var selectedSkillData = oEvent.getParameter("selectedItem").getCustomData();
+            console.log(selectedSkill, selectedSkillData);
 			var List = this.byId("skillTable"),
 				Binding = List.getBinding("items"),
 				Context = Binding.create({
                     "Skill": {
-                        "ID": ""
+                        "ID": selectedSkill
                     },
 				});
 
-			this.getView().getModel("appView").setProperty("/usernameEmpty", true);
-
-			List.getItems().some(function (Item) {
+					List.getItems().some(function (Item) {
 				if (Item.getBindingContext() === Context) {
 					Item.focus();
 					Item.setSelected(true);
 					return true;
 				}
-			});
-			
-		},
-		onDeleteSkill: function () {
-			console.log('delete clicked');
+			});	
+				this.getView().getModel().submitBatch("skillGroup");
+
+				this.addSkillDialog.close();
+
+        },
+
+		onCancel: function () {
+			console.log('cancel clicked');
+			this.addSkillDialog.close();
 		}
 	});
 });

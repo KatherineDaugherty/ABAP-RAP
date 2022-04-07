@@ -5,37 +5,47 @@
    xmlns:core="sap.ui.core" >
    <Dialog
       id="addSkillDialog"
-      title="Add New Skill">
+      title="Add a Skill to Employee">
       <layout:HorizontalLayout>
         <layout:VerticalLayout>
-            <form:SimpleForm
-                maxContainerCols="2"
-                editable="false"
-                layout="ResponsiveGridLayout"
-                labelSpanL="12"
-                labelSpanM="12"
-                emptySpanL="0"
-                emptySpanM="0"
-                columnsL="1"
-                columnsM="1">
-                <form:content>
-                    <Label text="Skill"/>
-                    <Input id="skill"/>
-             
-                </form:content>
-            </form:SimpleForm>
+           <Text text="Please select the skill to add:"/>
+            <Select
+
+                selectedKey="{
+                    path: '/Skills'
+                }"
+                items="{
+                    path: '/Skills'
+                    }"
+                change="onSelectChange">
+                <core:Item 
+                    key="{Id}" 
+                    text="{Skill}">
+                    <core:customData>
+                        <core:CustomData 
+                        key="Id"
+                        value="{Id}"/>
+                        <core:CustomData 
+                        key="Institution"
+                        value="{Institution}"/>
+                        <core:CustomData 
+                        key="Type"
+                        value="{Type}"/>
+                    </core:customData>
+                </core:Item>
+            </Select>
         </layout:VerticalLayout>
       </layout:HorizontalLayout>
       <beginButton>
-        <Button
+        <!-- <Button
             text="Add Skill"
             type="Emphasized"
-            press="onAddSkill"/>
+            press="onAddSkill"/> -->
       </beginButton>
       <endButton>
         <Button 
             text="Cancel"
-            press="onDeleteSkill"/>
+            press="onCancel"/>
       </endButton>
    </Dialog>
 </core:FragmentDefinition>
