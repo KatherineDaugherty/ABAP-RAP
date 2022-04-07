@@ -93,7 +93,7 @@
                     $$updateGroupId : 'skillGroup'
                 }
             }"
-            mode="MultiSelect"
+            mode="SingleSelectLeft"
             growing="true"
             growingScrollToLoad="true">
 
