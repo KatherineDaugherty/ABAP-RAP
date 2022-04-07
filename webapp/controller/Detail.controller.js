@@ -57,17 +57,22 @@ sap.ui.define([
 		},
 		
 //Skills Controls 
+
+onOpenSkillDialog : function () {
+	console.log('dialog clicked');
+	if (!this.addSkillDialog) {
+		this.addSkillDialog = this.getView().byId("addSkillDialog")
+	}
+	this.addSkillDialog.open();
+},
 		onAddSkill: function () {
 			console.log('clicked add Skill --- in progress');
 			var List = this.byId("skillTable"),
 				Binding = List.getBinding("items"),
 				Context = Binding.create({
                     "Skill": {
-                        "ID": "3b6fbba2-d36d-4e7d-9a8e-425c4b0636d6"
+                        "ID": ""
                     },
-					"DateAcquired" : "",
-                    "Renewal" : "",
-                    "ComfortLevel" : ""
 				});
 
 			this.getView().getModel("appView").setProperty("/usernameEmpty", true);

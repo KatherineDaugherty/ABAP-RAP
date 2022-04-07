@@ -108,7 +108,7 @@
                             icon="sap-icon://add"
                             text="Add Skill"
                             type="Transparent"
-                            press="onAddSkill"/>
+                            press="onOpenSkillDialog"/>
                         <Button
                             icon="sap-icon://delete"
                             text="Delete Skill"
@@ -147,11 +147,8 @@
                 <items>
                     <ColumnListItem >
                         <cells>
-							<Input
-                                editable="{= ${detailView>/editMode} ? true : false }"
-                                value="{_Skills/Skill}"
-                                valueLiveUpdate="true"
-                                liveChange="onInputChange"/>
+							<Text
+                                text="{_Skills/Skill}"/>
                             <Text
                                 text="{_Skills/Institution}"/>
                             <Text
@@ -189,6 +186,10 @@
 		<semantic:footerCustomActions>
 			<Button id="resetButton" text="Cancel"  press=".onResetChanges" />
 		</semantic:footerCustomActions>
+
+        <semantic:dependents>
+			<core:Fragment fragmentName="com.esfsrap.empskifsrap.view.AddSkillDialog" type="XML" />
+		</semantic:dependents>
 
 	</semantic:SemanticPage>
 </mvc:View>
