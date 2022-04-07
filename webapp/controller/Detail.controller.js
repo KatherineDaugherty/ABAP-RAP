@@ -7,6 +7,7 @@ sap.ui.define([
 
 ], function (Controller, JSONModel, History, Fragment, Core) {
 	"use strict";
+	var selectedSkill = "";
 	return Controller.extend("com.esfsrap.empskifsrap.controller.Detail", {
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
@@ -16,6 +17,8 @@ sap.ui.define([
 			});
 			this.getView().setModel(oViewModel, "detailView");
 			this.oEditAction = this.byId("editAction");
+			// this.selectedSkill = "";
+
 		},
 		_onObjectMatched: function (oEvent) {
 			this.getView().bindElement({
@@ -41,7 +44,6 @@ sap.ui.define([
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", true);	
 		},
-
 //Floating Footer Controls 
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
@@ -54,8 +56,7 @@ sap.ui.define([
 
 			this.getView().getModel().submitBatch("skillGroup");
 			oViewModel.setProperty("/editMode", false)
-		},
-		
+		},		
 //Skills Controls 
 		onOpenSkillDialog : function () {
 			console.log('dialog clicked');
@@ -64,9 +65,8 @@ sap.ui.define([
 		}
 		this.addSkillDialog.open();
 		},
-
 		onAddSkill: function (oEvent) {
-			var selectedSkill = oEvent.getSource().getParent().getContent()[0].getContent()[0].getContent()[1].getSelectedItem().getKey();
+			// var selectedSkill = oEvent.getSource().getParent().getContent()[0].getContent()[0].getContent()[1].getSelectedItem().getKey();
 
 			var List = this.byId("skillTable"),
 				Binding = List.getBinding("items"),
@@ -88,7 +88,7 @@ sap.ui.define([
 				
 		},
 		onSelectChange : function (oEvent) {
-            var selectedSkill = oEvent.getParameter("selectedItem").getKey();
+            selectedSkill = oEvent.getParameter("selectedItem").getKey();
             var selectedSkillData = oEvent.getParameter("selectedItem").getCustomData();
             console.log(selectedSkill, selectedSkillData);
 			// var List = this.byId("skillTable"),
