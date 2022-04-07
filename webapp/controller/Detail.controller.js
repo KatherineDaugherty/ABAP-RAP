@@ -92,9 +92,8 @@ sap.ui.define([
 			var List = this.byId("skillTable"),
 				Binding = List.getBinding("items"),
 				Context = Binding.create({
-                    "Skill": {
-                        "ID": selectedSkill
-                    },
+
+                        "SkillId": selectedSkill
 				});
 
 					List.getItems().some(function (Item) {
