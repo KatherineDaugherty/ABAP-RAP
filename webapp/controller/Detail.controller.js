@@ -13,7 +13,7 @@ sap.ui.define([
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.getRoute("detail").attachPatternMatched(this._onObjectMatched, this);
 			var oViewModel = new JSONModel({
-				editMode : false
+				editMode: false
 			});
 			this.getView().setModel(oViewModel, "detailView");
 			this.oEditAction = this.byId("editAction");
@@ -22,10 +22,10 @@ sap.ui.define([
 		},
 		_onObjectMatched: function (oEvent) {
 			this.getView().bindElement({
-				path : "/Employees(Id=" + window.decodeURIComponent(oEvent.getParameter("arguments").employeePath)+ ")",
-				parameters : {
-					"$$updateGroupId" : 'employeeGroup'
-				}	
+				path: "/Employees(Id=" + window.decodeURIComponent(oEvent.getParameter("arguments").employeePath) + ")",
+				parameters: {
+					"$$updateGroupId": 'employeeGroup'
+				}
 			});
 			console.log('in object', window.decodeURIComponent(oEvent.getParameter("arguments").employeePath));
 		},
@@ -42,13 +42,13 @@ sap.ui.define([
 		},
 		onEditEmployee: function (oEvent) {
 			var oViewModel = this.getView().getModel("detailView");
-			oViewModel.setProperty("/editMode", true);	
+			oViewModel.setProperty("/editMode", true);
 		},
-//Floating Footer Controls 
+		//Floating Footer Controls 
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", false),
-			this.getView().getModel().resetChanges('employeeGroup');
+				this.getView().getModel().resetChanges('employeeGroup');
 		},
 		onSaveEmployee: function () {
 			this.getView().getModel().submitBatch("employeeGroup");
@@ -56,57 +56,42 @@ sap.ui.define([
 
 			this.getView().getModel().submitBatch("skillGroup");
 			oViewModel.setProperty("/editMode", false)
-		},		
-//Skills Controls 
-		onOpenSkillDialog : function () {
+		},
+		//Skills Controls 
+		onOpenSkillDialog: function () {
 			console.log('dialog clicked');
 			if (!this.addSkillDialog) {
 				this.addSkillDialog = this.getView().byId("addSkillDialog")
-		}
-		this.addSkillDialog.open();
+			}
+			this.addSkillDialog.open();
 		},
 		onAddSkill: function (oEvent) {
 			// var selectedSkill = oEvent.getSource().getParent().getContent()[0].getContent()[0].getContent()[1].getSelectedItem().getKey();
-
 			var List = this.byId("skillTable"),
 				Binding = List.getBinding("items"),
 				Context = Binding.create({
 
-                        "SkillId": selectedSkill
+					"SkillId": selectedSkill
 				});
 
-					List.getItems().some(function (Item) {
+			List.getItems().some(function (Item) {
 				if (Item.getBindingContext() === Context) {
 					Item.focus();
 					Item.setSelected(true);
 					return true;
 				}
-			});	
+			});
 			this.getView().getModel().submitBatch("skillGroup");
-
-				this.addSkillDialog.close();
-				
+			this.addSkillDialog.close();
 		},
-		onSelectChange : function (oEvent) {
-            selectedSkill = oEvent.getParameter("selectedItem").getKey();
-            var selectedSkillData = oEvent.getParameter("selectedItem").getCustomData();
-            console.log(selectedSkill, selectedSkillData);
-			// var List = this.byId("skillTable"),
-			// 	Binding = List.getBinding("items"),
-			// 	Context = Binding.create({
-
-            //             "SkillId": selectedSkill
-			// 	});
-
-			// 		List.getItems().some(function (Item) {
-			// 	if (Item.getBindingContext() === Context) {
-			// 		Item.focus();
-			// 		Item.setSelected(true);
-			// 		return true;
-			// 	}
-			// });	
-        },
-
+		onSelectChange: function (oEvent) {
+			selectedSkill = oEvent.getParameter("selectedItem").getKey();
+			var selectedSkillData = oEvent.getParameter("selectedItem").getCustomData();
+			console.log(selectedSkill, selectedSkillData);
+		},
+		onDeleteSkill: function (oEvent) {
+			console.log('delete skill');
+		},
 		onCancel: function () {
 			console.log('cancel clicked');
 			this.addSkillDialog.close();
