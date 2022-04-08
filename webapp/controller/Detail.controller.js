@@ -1,11 +1,13 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
+	"sap/m/MessageToast",
+	"sap/m/MessageBox",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/routing/History",
 	"sap/ui/core/Fragment",
 	"sap/ui/core/Core"
 
-], function (Controller, JSONModel, History, Fragment, Core) {
+], function (Controller, MessageToast, MessageBox, JSONModel, History, Fragment, Core) {
 	"use strict";
 	var selectedSkill = "";
 	return Controller.extend("com.esfsrap.empskifsrap.controller.Detail", {
