@@ -36,12 +36,13 @@
                 <ToolbarSpacer/>      
                 <Button 
                     width="150px" 
-                    icon="sap-icon://add"
-                    tooltip="{i18n>addButtonText}"  
-                    press=".onAddSkill" 
-                    text="Add Skill"/> 
+                    icon="sap-icon://edit"
+                    tooltip="Edit"  
+                    press="onEditSkill" 
+                    text="Edit"/> 
                     <Button 
                     id="deleteSkillButton" 
+                    visible = "{skillView>/editMode}"
                     icon="sap-icon://delete" 
                     tooltip="{i18n>deleteButtonText}" 
                     press="onDeleteSkill" 

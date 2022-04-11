@@ -39,8 +39,11 @@ sap.ui.define([
                 }
             });
             this.getView().getModel().submitBatch("SkillGroup");
-
-        },  
+        }, 
+        onEditSkill : function () {
+            var oViewModel = this.getView().getModel("skillView");
+			oViewModel.setProperty("/editMode", true);        
+        },
         onSave : function () {
             console.log('save clicked', this.getView().getModel());
 			this.getView().getModel().submitBatch();
