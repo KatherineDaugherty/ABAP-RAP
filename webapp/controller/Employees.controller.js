@@ -5,7 +5,7 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "sap/ui/core/Core"
 
-], function (Controller, MessageToast, MessageBox, Fragment, Core) {
+], function (Controller, MessageToast, MessageBox) {
     "use strict";
 
     return Controller.extend("com.esfsrap.empskifsrap.controller.Employees", {
@@ -64,6 +64,9 @@ sap.ui.define([
             oRouter.navTo("detail", {
                 employeePath: window.encodeURIComponent((oItem.getBindingContext().getProperty("Id")))
             });
+        },
+        onAddSkill: function (oEvent){
+            console.log('clicked add skill');
         }
     });
 });
