@@ -22,7 +22,12 @@
         autoPopinMode="true"
         contextualWidth="Auto"
         growing="true"
-        items="{/Skills}"
+        items="{
+            path: '/Skills',
+            parameters: {
+                $$updateGroupId : 'SkillGroup'
+            } 
+        }"
         mode="SingleSelectLeft">			
                 
         <headerToolbar>

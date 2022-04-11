@@ -25,11 +25,11 @@ sap.ui.define([
                     "Type": "",
                     "Institution": ""
                 });
-                // oContext.created().then(function (oEvent) {
-                //     oRouter.navTo("skill", {
-                //         skillPath: oContext.getPath().substring("/Employees(".length, oContext.getPath().length-1)
-                //     })
-                // })
+                oContext.created().then(function (oEvent) {
+                    oRouter.navTo("skill", {
+                        skillPath: oContext.getPath().substring("/Employees(".length, oContext.getPath().length-1)
+                    })
+                })
 
             skillList.getItems().some(function (oItem) {
                 if (oItem.getBindingContext() === oContext) {
@@ -38,6 +38,8 @@ sap.ui.define([
                     return true;
                 }
             });
+            this.getView().getModel().submitBatch("SkillGroup");
+
         },  
         onSave : function () {
             console.log('save clicked', this.getView().getModel());
