@@ -65,8 +65,10 @@ sap.ui.define([
                 employeePath: window.encodeURIComponent((oItem.getBindingContext().getProperty("Id")))
             });
         },
-        onAddSkill: function (oEvent){
+        onAddSkill: function (oEvent) {
             console.log('clicked add skill');
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("skill");
         }
     });
 });
