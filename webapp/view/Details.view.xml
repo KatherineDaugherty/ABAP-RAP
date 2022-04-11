@@ -2,7 +2,6 @@
     controllerName="com.esfsrap.empskifsrap.controller.Detail" 
         xmlns="sap.m" 
         xmlns:f="sap.f" 
-        xmlns:card="sap.f.cards" 
         xmlns:layout="sap.ui.layout" 
         xmlns:w="sap.ui.integration.widgets" 
         displayBlock="true" 

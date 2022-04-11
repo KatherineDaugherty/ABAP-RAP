@@ -2,14 +2,19 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
 	"sap/m/MessageBox",
-    "sap/ui/core/Fragment",
-    "sap/ui/core/Core"
+    "sap/ui/model/json/JSONModel"
 
-], function (Controller, MessageToast, MessageBox) {
+
+], function (Controller, MessageToast, MessageBox, JSONModel) {
     "use strict";
 
     return Controller.extend("com.esfsrap.empskifsrap.controller.Skills", {
         onInit: function () {
+            var oViewModel = new JSONModel({
+				editMode: false
+			});
+			this.getView().setModel(oViewModel, "skillView");
+			this.oEditAction = this.byId("editAction");
         },
         onAddSkill: function () {
             var skillList = this.byId("idSkillTable"),
@@ -38,9 +43,9 @@ sap.ui.define([
             console.log('save clicked', this.getView().getModel());
 			this.getView().getModel().submitBatch();
 		},
-        onDelete : function () {
+        onDeleteSkill : function (oEvent) {
             console.log ('clicked Delete');
-			var oSelected = this.byId("idEmployeeTable").getSelectedItem();
+			var oSelected = this.byId("idSkillTable").getSelectedItem();
 
 			if (oSelected) {
 				oSelected.getBindingContext().delete("$auto").then(function () {

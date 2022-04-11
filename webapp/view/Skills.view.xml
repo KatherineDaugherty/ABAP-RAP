@@ -3,8 +3,20 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
     xmlns:core="sap.ui.core" 
-    xmlns:mvc="sap.ui.core.mvc">
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic"
+>
 
+<semantic:SemanticPage 
+        id="idSkillPage" 
+        title=" Skills Page" 
+        floatingFooter="true" 
+        showNavButton="true" 
+        showFooter = "{skillView>/editMode}"
+        navButtonPress=".onNavBack" 
+        icon="sap-icon://add-favorite">
+
+<semantic:content>
     <Table 
         id="idSkillTable"
         autoPopinMode="true"
@@ -27,7 +39,7 @@
                     id="deleteSkillButton" 
                     icon="sap-icon://delete" 
                     tooltip="{i18n>deleteButtonText}" 
-                    press=".onDeleteSkill" 
+                    press="onDeleteSkill" 
                     text="Delete Skill"/>
                     <layoutData>
                         <OverflowToolbarLayoutData priority="NeverOverflow" />
@@ -59,4 +71,23 @@
             </ColumnListItem>
         </items>
     </Table>
+            </semantic:content>
+
+         <semantic:titleMainAction>
+			<semantic:TitleMainAction id="addSkillButton" text="Add" press=".onAddSkill" visible ="{= ${skillView>/editMode} ? false : true }"/>
+		</semantic:titleMainAction>
+
+        <semantic:footerMainAction>
+			<semantic:FooterMainAction id="saveButton" text="Save" press=".onSaveSkill" />
+		</semantic:footerMainAction>
+
+		<semantic:footerCustomActions>
+			<Button id="resetButton" text="Cancel"  press=".onResetChanges" />
+		</semantic:footerCustomActions>
+
+        <!-- <semantic:dependents>
+			<core:Fragment fragmentName="com.esfsrap.empskifsrap.view.AddSkillDialog" type="XML" />
+		</semantic:dependents> -->
+</semantic:SemanticPage>
+
 </mvc:View>
