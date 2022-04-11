@@ -97,6 +97,11 @@
           "name":"detail",
           "pattern":"detail/{employeePath}",
           "target":"detail"
+        },
+        {
+          "name":"skill",
+          "pattern":"skill",
+          "target":"skill"
         }
       ],
       "targets": {
@@ -110,6 +115,10 @@
         "detail":{
           "viewId": "Details",
           "viewName":"Details"
+        },
+        "skill":{
+          "viewId": "Skills",
+          "viewName":"Skills"
         }
       }
     },
