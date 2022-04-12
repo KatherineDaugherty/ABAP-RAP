@@ -77,15 +77,33 @@
                     <VBox>
                         <ObjectIdentifier 
                             title="{Skill}" 
-                            visible ="{= ${skillView>/editMode} ? false : true }"
+                            visible ="{=!${skillView>/editMode}}"
                             />
                         <Input 
                             value="{Skill}" 
                             editable= "true"
                             visible ="{skillView>/editMode}"/>
                     </VBox>
-                    <Text text="{Type}"/>
-                    <Text text="{Institution}"/>
+                     <VBox>
+                        <Text 
+                            text="{Type}" 
+                            visible ="{=!${skillView>/editMode}}"
+                            />
+                        <Input 
+                            value="{Type}" 
+                            editable= "true"
+                            visible ="{skillView>/editMode}"/>
+                    </VBox>
+                     <VBox>
+                        <Text 
+                            text="{Institution}" 
+                            visible ="{=!${skillView>/editMode}}"
+                            />
+                        <Input 
+                            value="{Institution}" 
+                            editable= "true"
+                            visible ="{skillView>/editMode}"/>
+                    </VBox>
                 </cells>
             </ColumnListItem>
             
@@ -98,7 +116,7 @@
 			<semantic:TitleMainAction 
                 id="addSkillButton" 
                 text="Add New Skill" 
-                press=".onAddSkill" 
+                press="onAddSkill" 
                 visible ="{= ${skillView>/editMode} ? false : true }" />
 		</semantic:titleMainAction>
 

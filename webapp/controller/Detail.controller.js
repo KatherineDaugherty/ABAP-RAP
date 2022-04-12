@@ -69,11 +69,16 @@ sap.ui.define([
 		},
 		onAddSkill: function (oEvent) {
 			// var selectedSkill = oEvent.getSource().getParent().getContent()[0].getContent()[0].getContent()[1].getSelectedItem().getKey();
+			
 			var List = this.byId("skillTable"),
+				dateacquired = this.getView().byId('idDate').getValue(),
+				renewal= "",
+				comfortLevel="",
 				Binding = List.getBinding("items"),
 				Context = Binding.create({
 
-					"SkillId": selectedSkill
+					"SkillId": selectedSkill,
+					"Dateacquired": dateacquired
 				});
 
 			List.getItems().some(function (Item) {

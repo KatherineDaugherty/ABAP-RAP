@@ -17,17 +17,22 @@ sap.ui.define([
 			this.oEditAction = this.byId("editAction");
         },
         onAddSkill: function () {
+            console.log('onAddSkill');
+            var oViewModel = this.getView().getModel("skillView");
+			oViewModel.setProperty("/editMode", true);
+
+            this.getView().getModel().submitBatch("SkillGroup");
             var skillList = this.byId("idSkillTable"),
                 skillBinding = skillList.getBinding("items"),
-                oRouter = this.getOwnerComponent().getRouter(),
+                // oRouter = this.getOwnerComponent().getRouter(),
                 oContext = skillBinding.create({
                     "Skill": " ",
                     "Type": "",
                     "Institution": ""
                 });
-                oContext.created().then(function (oEvent) {
-                    oRouter.navTo("skill")
-                })
+                // oContext.created().then(function (oEvent) {
+                //     oRouter.navTo("skill")
+                // })
 
             skillList.getItems().some(function (oItem) {
                 if (oItem.getBindingContext() === oContext) {
@@ -36,7 +41,7 @@ sap.ui.define([
                     return true;
                 }
             });
-            this.getView().getModel().submitBatch("SkillGroup");
+            
         }, 
         onEditSkill : function () {
             var oViewModel = this.getView().getModel("skillView");
@@ -66,7 +71,7 @@ sap.ui.define([
 				this.getView().getModel().resetChanges('SkillGroup');
         },
         onSaveSkill : function (oEvent){
-            console.log('save');
+            console.log('onSaveSkill');
         this.getView().getModel().submitBatch("SkillGroup");
         var oViewModel = this.getView().getModel("skillView");
         oViewModel.setProperty("/editMode", false)
