@@ -17,22 +17,22 @@ sap.ui.define([
 			this.oEditAction = this.byId("editAction");
         },
         onAddSkill: function () {
-            console.log('onAddSkill');
+            console.log('onAddSkill-Skills');
             var oViewModel = this.getView().getModel("skillView");
 			oViewModel.setProperty("/editMode", true);
 
             this.getView().getModel().submitBatch("SkillGroup");
             var skillList = this.byId("idSkillTable"),
                 skillBinding = skillList.getBinding("items"),
-                // oRouter = this.getOwnerComponent().getRouter(),
+                oRouter = this.getOwnerComponent().getRouter(),
                 oContext = skillBinding.create({
                     "Skill": " ",
                     "Type": "",
                     "Institution": ""
                 });
-                // oContext.created().then(function (oEvent) {
-                //     oRouter.navTo("skill")
-                // })
+                oContext.created().then(function (oEvent) {
+                    oRouter.navTo("skill")
+                })
 
             skillList.getItems().some(function (oItem) {
                 if (oItem.getBindingContext() === oContext) {
