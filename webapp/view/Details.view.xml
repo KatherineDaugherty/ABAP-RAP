@@ -60,6 +60,10 @@
 						<Label text="Department" design="Bold" />
 						<Text text="{Department}" />
 					</layout:VerticalLayout>
+                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Label text="Industry" design="Bold" />
+						<Text text="{Industry}" />
+					</layout:VerticalLayout>
 				</layout:HorizontalLayout>
 
 				<layout:HorizontalLayout id="inputs" visible="{detailView>/editMode}">
@@ -77,13 +81,17 @@
 						<Input value="{Email}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 					 </layout:VerticalLayout>
 
-                    <Label text="Industry" design="Bold" />
-						<Input value="{Industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-						<Label text="Direct Report" design="Bold" />
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+                        <Label text="Direct Report" design="Bold" />
 						<Input value="{DirectReport}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						 <Label text="Department" design="Bold" />
 						<Input value="{Department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-						</layout:VerticalLayout>
+					</layout:VerticalLayout>
+                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                        <Label text="Industry" design="Bold" />
+						<Input value="{Industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+					</layout:VerticalLayout>
+
 				</layout:HorizontalLayout>
         </semantic:headerContent>
 
