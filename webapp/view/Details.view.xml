@@ -120,13 +120,11 @@
                             level="H3"/>
                         <ToolbarSpacer />
                         <Button
-                            visible="{detailView>/editMode}"
                             icon="sap-icon://add"
                             text="Add Skill"
                             type="Transparent"
                             press="onOpenSkillDialog"/>
                         <Button
-                            visible="{detailView>/editMode}"
                             icon="sap-icon://delete"
                             text="Delete Skill"
                             type="Transparent"

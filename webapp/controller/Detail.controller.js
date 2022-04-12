@@ -19,7 +19,6 @@ sap.ui.define([
 			});
 			this.getView().setModel(oViewModel, "detailView");
 			this.oEditAction = this.byId("editAction");
-			// this.selectedSkill = "";
 
 		},
 		_onObjectMatched: function (oEvent) {

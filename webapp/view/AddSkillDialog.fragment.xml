@@ -7,7 +7,7 @@
       id="addSkillDialog"
       title="Add a Skill to Employee">
       <layout:HorizontalLayout>
-        <layout:VerticalLayout>
+        <layout:VerticalLayout class="sapUiContentPadding">
            <Text text="Please select the skill to add:"/>
             <Select
 
