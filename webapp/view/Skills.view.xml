@@ -22,6 +22,7 @@
         autoPopinMode="true"
         contextualWidth="Auto"
         growing="true"
+        alternateRowColors = "true"
         items="{
             path: '/Skills',
             parameters: {
@@ -65,22 +66,23 @@
                 <Text text="Institution"/>
             </Column>
         </columns>
-        <items
-             visible = "{skillView>/editMode}">
+
+        <items>
             <ColumnListItem 
                 vAlign="Middle"
-                press=".onPressSkill"
+                press=".onPressSkill"                
                 type="Inactive"> 
-                <cells
-                 visible = "{skillView>/editMode}">
+                <cells>
                     <ObjectIdentifier title="{Skill}" />
                         <Text text="{Type}"/>
                         <Text text="{Institution}"/>
                 </cells>
             </ColumnListItem>
+            
         </items>
     </Table>
-            </semantic:content>
+</semantic:content>
+
 
          <semantic:titleMainAction>
 			<semantic:TitleMainAction 
