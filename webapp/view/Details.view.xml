@@ -174,21 +174,30 @@
                                     visible="{= ${detailView>/editMode} ? false : true }"/>
                                 <DatePicker
                                     visible="{detailView>/editMode}"
-                                    editable="{detailView>/editMode}"
                                     value="{Dateacquired}"
                                     valueLiveUpdate="true"
                                     liveChange="onInputChange"/>
                             </VBox>
-                            <Input
-                                editable="{detailView>/editMode}"
-                                value="{Renewal}"
-                                valueLiveUpdate="true"
-                                liveChange="onInputChange"/>
-                            <Input
-                                editable="{detailView>/editMode}"
-                                value="{Comfortlevel}"
-                                valueLiveUpdate="true"
-                                liveChange="onInputChange"/>    
+                            <VBox>
+                                <Text 
+                                    text="{Renewal}"
+                                    visible="{= ${detailView>/editMode} ? false : true }"/>
+                                <Input
+                                    visible="{detailView>/editMode}"
+                                    value="{Renewal}"
+                                    valueLiveUpdate="true"
+                                    liveChange="onInputChange"/>
+                            </VBox>
+                            <VBox>
+                                <Text 
+                                    text="{Comfortlevel}"
+                                    visible="{= ${detailView>/editMode} ? false : true }"/>
+                                <Input
+                                    visible="{detailView>/editMode}"
+                                    value="{Comfortlevel}"
+                                    valueLiveUpdate="true"
+                                    liveChange="onInputChange"/>  
+                            </VBox>  
                         </cells>
                     </ColumnListItem>
                 </items>
