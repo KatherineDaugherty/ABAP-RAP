@@ -5,6 +5,7 @@
     xmlns:core="sap.ui.core" 
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:semantic="sap.f.semantic"
+
 >
 
 <semantic:SemanticPage 
@@ -73,9 +74,18 @@
                 press=".onPressSkill"                
                 type="Inactive"> 
                 <cells>
-                    <ObjectIdentifier title="{Skill}" />
-                        <Text text="{Type}"/>
-                        <Text text="{Institution}"/>
+                    <VBox>
+                        <ObjectIdentifier 
+                            title="{Skill}" 
+                            visible ="{= ${skillView>/editMode} ? false : true }"
+                            />
+                        <Input 
+                            value="{Skill}" 
+                            editable= "true"
+                            visible ="{skillView>/editMode}"/>
+                    </VBox>
+                    <Text text="{Type}"/>
+                    <Text text="{Institution}"/>
                 </cells>
             </ColumnListItem>
             

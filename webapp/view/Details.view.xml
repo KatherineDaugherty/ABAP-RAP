@@ -23,7 +23,6 @@
         <semantic:titleHeading>
             <layout:VerticalLayout>
                 <Title 
-                    id="bigName"
                     visible="{= ${detailView>/editMode} ? false : true }"
                     text="{Fullname}"/>
                 <Label 
@@ -31,7 +30,6 @@
                     design="Bold" 
                     visible="{detailView>/editMode}" />
                 <Input
-                    id="bigNameEdit"
                     visible="{detailView>/editMode}"
                     editable="true"
                     value="{Fullname}"
@@ -99,7 +97,6 @@
             <Table
             id="skillTable"
             width="auto"
-            visible = "{= ${detailView>/editMode} ? false : true }"
             items="{
                 path: 'Employees2Skills',
                 expand: '_Skills',
@@ -119,12 +116,15 @@
                             text="Employee Skills"
                             level="H3"/>
                         <ToolbarSpacer />
+                      
                         <Button
+                            visible="{detailView>/editMode}"
                             icon="sap-icon://add"
                             text="Add Skill"
                             type="Transparent"
                             press="onOpenSkillDialog"/>
                         <Button
+                            visible="{detailView>/editMode}"
                             icon="sap-icon://delete"
                             text="Delete Skill"
                             type="Transparent"

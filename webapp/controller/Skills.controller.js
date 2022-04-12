@@ -19,16 +19,14 @@ sap.ui.define([
         onAddSkill: function () {
             var skillList = this.byId("idSkillTable"),
                 skillBinding = skillList.getBinding("items"),
-                // oRouter = this.getOwnerComponent().getRouter(),
+                oRouter = this.getOwnerComponent().getRouter(),
                 oContext = skillBinding.create({
                     "Skill": " ",
                     "Type": "",
                     "Institution": ""
                 });
                 oContext.created().then(function (oEvent) {
-                    oRouter.navTo("skill", {
-                        skillPath: oContext.getPath().substring("/Employees(".length, oContext.getPath().length-1)
-                    })
+                    oRouter.navTo("skill")
                 })
 
             skillList.getItems().some(function (oItem) {
@@ -60,6 +58,7 @@ sap.ui.define([
 				});
 			}
         },
+//  Footer 
         onResetChanges : function (oEvent){
             console.log('reset');
             var oViewModel = this.getView().getModel("skillView");

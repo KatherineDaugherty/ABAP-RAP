@@ -58,7 +58,8 @@ sap.ui.define([
 			this.getView().getModel().submitBatch("skillGroup");
 			oViewModel.setProperty("/editMode", false)
 		},
-		//Skills Controls 
+//Skills Controls 
+
 		onOpenSkillDialog: function () {
 			console.log('dialog clicked');
 			if (!this.addSkillDialog) {
