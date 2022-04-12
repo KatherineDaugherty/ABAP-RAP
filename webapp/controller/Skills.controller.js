@@ -59,7 +59,18 @@ sap.ui.define([
 					MessageBox.error(oError.message);
 				});
 			}
+        },
+        onResetChanges : function (oEvent){
+            console.log('reset');
+            var oViewModel = this.getView().getModel("skillView");
+			oViewModel.setProperty("/editMode", false),
+				this.getView().getModel().resetChanges('SkillGroup');
+        },
+        onSaveSkill : function (oEvent){
+            console.log('save');
+        this.getView().getModel().submitBatch("SkillGroup");
+        var oViewModel = this.getView().getModel("skillView");
+        oViewModel.setProperty("/editMode", false)
         }
-        
     });
 });

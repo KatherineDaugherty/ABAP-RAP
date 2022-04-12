@@ -39,6 +39,7 @@
                     icon="sap-icon://edit"
                     tooltip="Edit"  
                     press="onEditSkill" 
+                    visible = "{= ${skillView>/editMode} ? false : true }"
                     text="Edit"/> 
                     <Button 
                     id="deleteSkillButton" 
@@ -55,7 +56,7 @@
 
         <columns>
             <Column width="12rem">
-                <Text text="Skill"/>
+                <Text text="Name"/>
             </Column>
             <Column width="12rem">
                 <Text text="Type"/>
@@ -64,12 +65,14 @@
                 <Text text="Institution"/>
             </Column>
         </columns>
-        <items>
+        <items
+             visible = "{skillView>/editMode}">
             <ColumnListItem 
                 vAlign="Middle"
                 press=".onPressSkill"
                 type="Inactive"> 
-                <cells>
+                <cells
+                 visible = "{skillView>/editMode}">
                     <ObjectIdentifier title="{Skill}" />
                         <Text text="{Type}"/>
                         <Text text="{Institution}"/>
@@ -80,20 +83,21 @@
             </semantic:content>
 
          <semantic:titleMainAction>
-			<semantic:TitleMainAction id="addSkillButton" text="Add" press=".onAddSkill" visible ="{= ${skillView>/editMode} ? false : true }"/>
+			<semantic:TitleMainAction 
+                id="addSkillButton" 
+                text="Add New Skill" 
+                press=".onAddSkill" 
+                visible ="{= ${skillView>/editMode} ? false : true }" />
 		</semantic:titleMainAction>
 
         <semantic:footerMainAction>
-			<semantic:FooterMainAction id="saveButton" text="Save" press=".onSaveSkill" />
+			<semantic:FooterMainAction id="saveButton" text="Save" press="onSaveSkill" />
 		</semantic:footerMainAction>
 
 		<semantic:footerCustomActions>
-			<Button id="resetButton" text="Cancel"  press=".onResetChanges" />
+			<Button id="resetButton" text="Cancel"  press="onResetChanges" />
 		</semantic:footerCustomActions>
 
-        <!-- <semantic:dependents>
-			<core:Fragment fragmentName="com.esfsrap.empskifsrap.view.AddSkillDialog" type="XML" />
-		</semantic:dependents> -->
 </semantic:SemanticPage>
 
 </mvc:View>
