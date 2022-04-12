@@ -26,6 +26,10 @@
                     id="bigName"
                     visible="{= ${detailView>/editMode} ? false : true }"
                     text="{Fullname}"/>
+                <Label 
+                    text="Name" 
+                    design="Bold" 
+                    visible="{detailView>/editMode}" />
                 <Input
                     id="bigNameEdit"
                     visible="{detailView>/editMode}"
@@ -60,23 +64,26 @@
 
 				<layout:HorizontalLayout id="inputs" visible="{detailView>/editMode}">
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
-						<Label text="Department" design="Bold" />
-						<Input value="{Department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Title" design="Bold" />
 						<Input value="{Title}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Role" design="Bold" />
 						<Input value="{Role}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 					</layout:VerticalLayout>
+                       
 					<layout:VerticalLayout class="sapUiMediumMarginEnd">
-						<Label text="Industry" design="Bold" />
-						<Input value="{Industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-						<Label text="Direct Report" design="Bold" />
-						<Input value="{DirectReport}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Start Date" design="Bold" />
 						<Input value="{StartDate}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
 						<Label text="Email" design="Bold" />
 						<Input value="{Email}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
-					</layout:VerticalLayout>
+					 </layout:VerticalLayout>
+
+                    <Label text="Industry" design="Bold" />
+						<Input value="{Industry}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						<Label text="Direct Report" design="Bold" />
+						<Input value="{DirectReport}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						 <Label text="Department" design="Bold" />
+						<Input value="{Department}" editable="{detailView>/editMode}" valueLiveUpdate="true" liveChange="onInputChange" />
+						</layout:VerticalLayout>
 				</layout:HorizontalLayout>
         </semantic:headerContent>
 
@@ -84,6 +91,7 @@
             <Table
             id="skillTable"
             width="auto"
+            visible = "{= ${detailView>/editMode} ? false : true }"
             items="{
                 path: 'Employees2Skills',
                 expand: '_Skills',
