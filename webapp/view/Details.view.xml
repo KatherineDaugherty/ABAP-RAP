@@ -168,11 +168,17 @@
                                 text="{_Skills/Institution}"/>
                             <Text
                                 text="{_Skills/Type}"/>
-                            <DatePicker
-                                editable="{= ${detailView>/editMode} ? true : false }"
-                                value="{Dateacquired}"
-                                valueLiveUpdate="true"
-                                liveChange="onInputChange"/>
+                            <VBox>
+                                <Text 
+                                    text="{Dateacquired}"
+                                    visible="{= ${detailView>/editMode} ? false : true }"/>
+                                <DatePicker
+                                    visible="{detailView>/editMode}"
+                                    editable="{detailView>/editMode}"
+                                    value="{Dateacquired}"
+                                    valueLiveUpdate="true"
+                                    liveChange="onInputChange"/>
+                            </VBox>
                             <Input
                                 editable="{detailView>/editMode}"
                                 value="{Renewal}"
