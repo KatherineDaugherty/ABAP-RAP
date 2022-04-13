@@ -203,6 +203,43 @@
                 </items>
             </Table>
 
+            <!-- <f:GridContainer 
+                id="grid1" 
+                class="sapUiSmallMargin" 
+                snapToRow="true" 
+                items="{
+                            path: 'skills',
+                            parameters : {
+                                    expand : 'skills'
+                                }
+                        }">
+					<f:layout>
+						<f:GridContainerSettings rowSize="80px" columnSize="80px" gap="18px" />
+					</f:layout>
+					<f:layoutXS>
+						<f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
+					</f:layoutXS>
+
+					<f:items>
+						<GenericTile header="{skill/skill}" subheader="{skill/type}" >
+							<layoutData>
+								<f:GridContainerItemLayoutData minRows="2" columns="2" />
+							</layoutData>
+							<TileContent>
+								<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+									<VBox>
+										<Label text="Date Acquired" design="Bold" />
+										<Label text="{dateAcquired}" />
+										<Label text="Comfort Level" design="Bold" />
+										<ProgressIndicator percentValue="{comfortLevel}" state="Success" displayValue="{comfortLevel}" />
+									</VBox>
+								</layout:VerticalLayout>
+							</TileContent>
+						</GenericTile>
+					</f:items>
+				</f:GridContainer> -->
+
+
         </semantic:content>
 
          <semantic:titleMainAction>
