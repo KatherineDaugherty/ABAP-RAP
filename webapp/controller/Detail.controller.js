@@ -3,11 +3,9 @@ sap.ui.define([
 	"sap/m/MessageToast",
 	"sap/m/MessageBox",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/routing/History",
-	"sap/ui/core/Fragment",
-	"sap/ui/core/Core"
+	"sap/ui/core/routing/History"
 
-], function (Controller, MessageToast, MessageBox, JSONModel, History, Fragment, Core) {
+], function (Controller, MessageToast, MessageBox, JSONModel, History) {
 	"use strict";
 	var selectedSkill = "";
 	return Controller.extend("com.esfsrap.empskifsrap.controller.Detail", {
@@ -45,7 +43,7 @@ sap.ui.define([
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", true);
 		},
-		//Floating Footer Controls 
+//Floating Footer Controls 
 		onResetChanges: function () {
 			var oViewModel = this.getView().getModel("detailView");
 			oViewModel.setProperty("/editMode", false),
@@ -71,12 +69,8 @@ sap.ui.define([
 			// var selectedSkill = oEvent.getSource().getParent().getContent()[0].getContent()[0].getContent()[1].getSelectedItem().getKey();
 			console.log('onAddSkill -Detail');
 			var List = this.byId("skillTable"),
-				// dateacquired = this.getView().byId('idDate').getValue(),
-				// renewal= "",
-				// comfortLevel="",
 				Binding = List.getBinding("items"),
 				Context = Binding.create({
-
 					"SkillId": selectedSkill
 				});
 

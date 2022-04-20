@@ -33,38 +33,6 @@
                     </core:customData>
                 </core:Item>
             </Select>
-        <!-- <form:SimpleForm
-        maxContainerCols="2"
-                editable="true"
-                layout="ResponsiveGridLayout"
-                labelSpanL="12"
-                labelSpanM="12"
-                emptySpanL="0"
-                emptySpanM="0"
-                columnsL="1"
-                columnsM="1">
-                <form:content>
-                <Label
-                    text = "Select Date" />
-            <DatePicker
-                id="idDate"
-                value="{Dateacquired}"
-                valueLiveUpdate="true"
-                liveChange="onInputChange"/>
-            <Label
-                text = "Renewal" />        
-            <Input
-                value="{Renewal}"
-                valueLiveUpdate="true"
-                liveChange="onInputChange"/>
-            <Label
-                text = "Comfort Level" />
-            <Input
-                value="{Comfortlevel}"
-                valueLiveUpdate="true"
-                liveChange="onInputChange"/>    
-            </form:content>
-        </form:SimpleForm> -->
 
         </layout:VerticalLayout>
       </layout:HorizontalLayout>
